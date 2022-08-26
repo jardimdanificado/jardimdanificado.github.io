@@ -1,0 +1,307 @@
+
+*
+{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.dropbtn {
+    background-color: #a8564d;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    border-radius: 35%;
+    cursor: pointer;
+}
+
+.dropdown 
+{
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content 
+{
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+
+.dropdown-content a 
+{
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content 
+{
+    display: block;
+}
+
+.dropdown:hover .dropbtn 
+{
+    background-color: #3e8e41;
+}
+
+body
+{
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header
+{
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    width: 100%;
+    text-align: right;
+    padding-right: 10%;
+}
+
+#logo
+{
+    width: 50%;
+    display:block;
+    margin-left: 10%;
+    margin-right: auto;
+}
+
+#icon
+{
+    width: 1%;
+    height: 1%;
+}
+
+.links a 
+{
+    font-size: 16px;
+    text-decoration: none;
+    color: black;
+}
+
+.links a:hover 
+{
+    color: #a8564d;
+    font-weight: bold;
+    transition: font-weight 100ms, color 300ms;
+}
+
+#mains
+{
+    display: flex;
+    flex-direction: row;
+}
+
+#wrapper 
+{
+    background-color: #FBDFDB;
+    width: 40%;
+    height: auto;
+    border-radius: 30px;
+    display: grid;
+    text-align: center;
+}
+
+#wrapper .content 
+{
+    margin: 0 0px;
+}
+
+#wrapper .content h1
+{
+    font-size: 32px;
+    line-height: 42px;
+    font-weight: bold;
+    margin-top: 1%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#wrapper .content h2 
+{
+    font-size: 18px;
+    line-height: 28px;
+    opacity: 0.8;
+    font-weight: normal;
+    padding-top: 10px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#wrapper img
+{
+    display:block;
+    margin-left: auto;
+    margin-right: 0;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 0;
+    border-radius: 25px;
+}
+
+.mostAccessed
+{
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+h3 
+{
+    font-size: 24px;
+    line-height: 34px;
+    font-weight: bold;
+}
+
+.cartoes 
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* 3 colunas*/
+    gap: 20px;
+    
+}
+
+.cartao__image-container img 
+{
+    width: 100%;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.cartao_content 
+{
+    margin-top: 20px;
+}
+
+.cartao_chef 
+{
+    opacity: 0.7;
+    margin-top: 5px;
+}
+
+.sobre h1 
+{
+    font-size: 24px;
+    line-height: 34px;
+    margin-bottom: 20px;
+}
+
+.sobre h2 
+{
+    font-size: 20px;
+    line-height: 30px;
+    margin-bottom: 20px;
+}
+
+.sobre p
+{
+    opacity: 0.7;
+}
+
+.paraG 
+{
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.barra-overlay
+{
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%; /*largura*/
+    height: 100%; /*altura*/
+    position: fixed;
+    top: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.barra
+{
+    background-color: white;
+    max-width: 700px; /*largura*/
+    max-height: 800px; /*altura*/
+    margin: 20vh auto ; /*VH se adpta ao tamanho da tela* alinhando ao centro*/
+    position: relative;
+    border-radius: 16px;
+}
+
+.barra .close-barra 
+{
+    color: black;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    cursor: pointer;
+}
+
+.barra-overlay.active 
+{
+    opacity: 1;
+    visibility: visible;
+}
+
+.title-barra, .chef-barra 
+{
+    text-align: center;
+}
+
+.title-barra 
+{
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.chef-barra
+{
+    opacity: 0.8;
+    padding-bottom: 30px;
+    padding-top: 5px;
+}
+
+.barra-content 
+{
+    text-align: center;
+}
+.barra-content img 
+{
+    max-width: 700px; 
+    max-height: 300px; 
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+}
+
+/* DEIXAR FOOTER GRUDADO NO FIM DA PÁGINA */
+
+footer 
+{
+
+    padding: 16px;
+    margin-top: 4.5%;
+    border: 1px solid #eee;
+    background-color: rgba(238, 238, 238, 0.705);
+    text-align: center;
+    opacity: 0.8;
+
+
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
