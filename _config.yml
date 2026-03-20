@@ -1,0 +1,19 @@
+title: "jardimdanificado"
+description: "um lugar para documentar meus projetos, experimentos e pesquisas."
+subtitle: "eu gosto de criar coisas"
+timezone: "America/Sao_Paulo"
+permalink: /posts/:title/
+baseurl: "" # Se o site estiver em usuario.github.io/jardimdanificado, mude para "/jardimdanificado"
+url: "https://jardimdanificado.github.io" # Substitua pelo seu domínio se tiver um custom
+plugins:
+  - jekyll-paginate
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge # Jekyll highlights code by default
+
+defaults:
+  - scope:
+      path: "_posts"
+    values:
+      layout: "post"
