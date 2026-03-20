@@ -1,0 +1,352 @@
+/* ============================================================
+   Jardim Danificado — Frutiger Aero Theme
+   Inspirado na era 2004–2012: vidro, água, brilho, natureza
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700;800&family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+  color-scheme: light;
+
+  /* Aero-Bliss Hybrid Palette */
+  --grass-green: #2ecc71;
+  --water-blue:  #3498db;
+  --glass-bg:    rgba(255, 255, 255, 0.7);
+  --glass-border: #000000;
+  --glass-shadow: 12px 12px 0 #000000;
+  
+  --accent:      #00a8ff;
+  --text:        #000000;
+  --text-mid:    #111111;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  color: var(--text);
+  line-height: 1.5;
+  padding: 2rem 4rem;
+  background: #ffffff; /* Fundo sólido fora das formas */
+}
+
+
+
+/* As bolhas agora serão movidas para dentro do container de vidro no pseudo-elemento ::before */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%       { transform: translateY(-30px) scale(1.04); }
+}
+
+/* ── LAYOUT PRINCIPAL ────────────────────────────────────── */
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 860px;
+  margin: 2.2rem auto 3rem;
+  padding: 0 1.5rem;
+  padding: 0 2rem; /* Ample padding */
+}
+
+/* ── SEÇÃO INTRO ─────────────────────────────────────────── */
+.organic-glass-container {
+  border: 4px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.98); /* Fundo quase sólido (ainda mais esbranquiçado) */
+  box-shadow: var(--glass-shadow);
+  padding: 3.5rem 4rem;
+  max-width: 1000px;
+  margin: 2rem auto;
+  border-radius: 30px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* O fundo e o efeito de vidro agora ficam restritos a este container */
+.organic-glass-container::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: 
+    linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.8)),
+    url('../assets/bliss_bg.png') center/cover no-repeat fixed;
+  filter: blur(40px) saturate(150%);
+  z-index: -1;
+  transform: scale(1.1); /* Evita bordas secas no desfoque */
+}
+
+
+
+
+
+@keyframes organicFade {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.organic-header {
+  border-bottom: 5px solid var(--glass-border); /* Thicker border */
+  margin-bottom: 3rem; /* Increased margin */
+  padding-bottom: 2rem; /* Increased padding */
+  position: relative;
+  z-index: 2;
+}
+
+.organic-header h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 3.8rem; /* Reduced size */
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+  line-height: 0.9;
+  margin: 0;
+  color: var(--text);
+  text-shadow: none;
+}
+
+.organic-header p {
+  font-family: 'Space Mono', monospace;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-top: 1rem; /* Adjusted margin */
+  background-color: var(--grass-green); /* Changed to grass-green */
+  display: inline-block;
+  padding: 0.3rem 0.8rem; /* Adjusted padding */
+  border: 3px solid var(--glass-border);
+  color: #000000; /* Texto agora preto conforme solicitado */
+  letter-spacing: normal; /* Reset letter spacing */
+  text-transform: none; /* Reset text transform */
+  text-shadow: none;
+}
+
+.intro {
+  margin: 0; /* Reset margin */
+  padding: 0; /* Reset padding */
+  border-radius: 0; /* Reset border-radius */
+  background: transparent; /* Reset background */
+  backdrop-filter: none; /* Reset backdrop-filter */
+  -webkit-backdrop-filter: none; /* Reset -webkit-backdrop-filter */
+  border: none; /* Remove border */
+  box-shadow: none; /* Remove box-shadow */
+  position: relative;
+  overflow: hidden;
+}
+
+.intro::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 40%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.intro h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.intro p {
+  margin: 0;
+  color: var(--text-mid);
+  font-size: 0.97rem;
+}
+
+.intro-clean { margin: 0; }
+.intro-clean p { font-weight: 400; font-size: 1.15rem; color: var(--text-mid); }
+
+.posts {
+  background: transparent;
+  margin-top: 3rem;
+  position: relative;
+  /* Shadow remains on the main wrapper */
+  box-shadow: 12px 12px 0 var(--glass-border);
+  border-radius: 25px;
+}
+
+.posts h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  background-color: var(--glass-border);
+  color: white;
+  padding: 1.2rem 2.5rem;
+  display: block;
+  letter-spacing: -1px;
+  margin: 0;
+  
+  /* Robust Borders */
+  border: 4px solid var(--glass-border);
+  border-radius: 25px 25px 0 0;
+}
+
+.posts ul { 
+  list-style: none; 
+  margin: 0; 
+  padding: 2.5rem; 
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  
+  /* Glass Body with independent borders */
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(45px);
+  border: 4px solid var(--glass-border);
+  border-top: none; 
+  border-radius: 0 0 25px 25px;
+}
+
+.posts li {
+  border: 2px solid var(--glass-border);
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.2);
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-radius: 18px;
+}
+
+.posts li:hover {
+  transform: scale(1.01) translateY(-4px);
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 6px 6px 0 #000000;
+}
+
+.posts a {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 800;
+  font-size: 2rem;
+  color: var(--text);
+  text-decoration: none;
+  line-height: 1;
+  border-bottom: 6px solid #000000;
+}
+
+.posts span {
+  font-family: 'Space Mono', monospace;
+  font-weight: 800;
+  font-size: 0.9rem;
+  background: var(--grass-green);
+  color: #000000;
+  padding: 0.4rem 0.8rem;
+  border: 2px solid var(--glass-border);
+  align-self: flex-start;
+  border-radius: 10px;
+}
+
+/* ── ARTIGO MARKDOWN ─────────────────────────────────────── */
+.markdown-post {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+.markdown-post h1,
+.markdown-post h2,
+.markdown-post h3 {
+  font-weight: 800;
+  text-transform: uppercase;
+  border-bottom: 6px solid #000000;
+  display: inline-block;
+  margin-bottom: 1rem;
+  text-shadow: 0 1px 0 white;
+}
+
+.markdown-post p {
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.markdown-post article {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(45px);
+  border: 4px solid var(--glass-border);
+  border-radius: 25px;
+  padding: 3.5rem;
+  box-shadow: 12px 12px 0 var(--glass-border);
+  margin-top: 1.5rem;
+  animation: fadeUp 0.6s ease-out;
+}
+
+.markdown-post a.back-link {
+  font-family: 'Space Mono', monospace;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  color: var(--text);
+  padding: 0.6rem 1.2rem;
+  text-decoration: none;
+  font-weight: 800;
+  display: inline-block;
+  border: 4px solid var(--glass-border);
+  border-radius: 12px;
+  box-shadow: 4px 4px 0 #000000;
+}
+
+.markdown-post a.back-link:hover {
+  background: var(--grass-green);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--glass-border);
+}
+
+.site-footer {
+  margin-top: 4rem;
+  border: 4px solid var(--glass-border);
+  padding: 2rem;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  color: var(--text);
+  font-weight: 800;
+  text-align: center;
+  font-family: 'Space Mono', monospace;
+  border-radius: 20px;
+  box-shadow: 10px 10px 0 var(--accent-2);
+}
+
+.site-footer p { margin: 0; }
+
+.site-footer::before { display: none; }
+
+/* ── RESPONSIVO ──────────────────────────────────────────── */
+@media (max-width: 820px) {
+  .content {
+    padding: 0 1rem;
+    margin: 1.4rem auto 2rem;
+  }
+
+  .posts,
+  .markdown-post { padding: 1.1rem 1.2rem; border-radius: 16px; }
+
+  .posts li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+
+  .posts span { align-self: flex-start; }
+
+  .site-header { padding: 0.9rem 1rem; }
+  .site-header h1 { font-size: 1.65rem; }
+
+  .markdown-post h1 { font-size: 1.55rem; }
+}
+
+/* ── ANIMATIONS ─────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.intro { animation: fadeUp 0.6s ease-out; }
+.posts { animation: fadeUp 0.6s 0.1s ease-out both; }
+.markdown-post { animation: fadeUp 0.6s ease-out; }

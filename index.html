@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌱 o jardim danificado</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <main class="content">
+    <div class="organic-glass-container">
+      <header class="organic-header">
+        <h1>Andou Enoque com Deus e já não era, porque Deus o tomou para si.</h1>
+        <p>Gênesis 5:24</p>
+      </header>
+
+      <section id="intro" class="intro-clean">
+      </section>
+
+      <div class="unified-content">
+        <section class="posts">
+          <h2>Artigos recentes</h2>
+          <ul id="post-list"></ul>
+        </section>
+
+        <section id="article-container" class="markdown-post" hidden></section>
+      </div>
+
+      <footer class="site-footer">
+        <p>© 2026 jardimdanificado</p>
+      </footer>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    const postList = document.getElementById('post-list');
+    const articleContainer = document.getElementById('article-container');
+    const introSection = document.getElementById('intro');
+
+    function renderPosts(posts) {
+      postList.innerHTML = '';
+      posts.forEach(p => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+          <a href="?post=${p.slug}">${p.title}</a>
+          <span>${p.date || ''}</span>
+        `;
+        postList.appendChild(li);
+      });
+    }
+
+    async function loadPosts() {
+      try {
+        const response = await fetch('posts.json');
+        if (!response.ok) throw new Error('Não foi possível carregar posts.json');
+        const posts = await response.json();
+        renderPosts(posts);
+      } catch (error) {
+        postList.innerHTML = `<li>Erro ao carregar posts: ${error.message}</li>`;
+      }
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    const postSlug = params.get('post');
+
+    function getMetadata(md) {
+      const meta = {};
+      if (md.startsWith('---')) {
+        const end = md.indexOf('\n---', 3);
+        const frontMatter = md.slice(3, end).trim();
+        frontMatter.split('\n').forEach(line => {
+          const [key, ...val] = line.split(':');
+          if (key && val) meta[key.trim()] = val.join(':').trim().replace(/^"(.*)"$/, '$1');
+        });
+      }
+      return meta;
+    }
+
+    function stripFrontMatter(md) {
+      if (md.startsWith('---')) {
+        const end = md.indexOf('\n---', 3);
+        if (end !== -1) return md.slice(end + 4).trim();
+      }
+      return md;
+    }
+
+    async function renderPost(slug) {
+      try {
+        const response = await fetch(`posts/${slug}.md`);
+        if (!response.ok) throw new Error('Arquivo não encontrado');
+        let rawMd = await response.text();
+
+        const meta = getMetadata(rawMd);
+        const md = stripFrontMatter(rawMd);
+        const content = marked.parse(md);
+
+        // Atualiza o título no cabeçalho principal (Substitui o Salmo pelo título do artigo)
+        if (meta.title) {
+          document.querySelector('.organic-header h1').innerText = meta.title;
+        }
+
+        articleContainer.innerHTML = `<a class="back-link" href="./">← Voltar</a><article>${content}</article>`;
+        articleContainer.hidden = false;
+        introSection.hidden = true;
+        document.querySelector('.posts').hidden = true;
+      } catch (error) {
+        articleContainer.innerHTML = `<p>Erro ao carregar post: ${error.message}</p>`;
+        articleContainer.hidden = false;
+      }
+    }
+
+    if (postSlug) {
+      renderPost(postSlug);
+    } else {
+      loadPosts();
+    }
+  </script>
+</body>
+
+</html>
