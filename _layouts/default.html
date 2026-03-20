@@ -13,14 +13,21 @@
   <main class="content">
     <div class="organic-glass-container">
       <header class="organic-header">
-        <img src="{{ "/assets/icon.png" | relative_url }}" alt="" class="header-icon">
-        {% if page.layout == 'post' %}
-        <h1>{{ page.title }}</h1>
-        <p>{{ page.date | date: "%Y-%m-%d" }}</p>
-        {% else %}
-        <h1>{{ site.description }}</h1>
-        <p>{{ site.subtitle }}</p>
-        {% endif %}
+        <div class="header-flex-row">
+          <img src="{{ "/assets/icon.png" | relative_url }}" alt="" class="header-side-icon">
+          
+          <div class="header-text-group">
+            {% if page.layout == 'post' %}
+              <h1>{{ page.title }}</h1>
+              <p>{{ page.date | date: "%Y-%m-%d" }}</p>
+            {% else %}
+              <h1>{{ site.description }}</h1>
+              <p>{{ site.subtitle }}</p>
+            {% endif %}
+          </div>
+
+          <img src="{{ "/assets/icon2.png" | relative_url }}" alt="" class="header-side-icon">
+        </div>
       </header>
 
       {{ content }}
@@ -30,11 +37,6 @@
       </footer>
     </div>
   </main>
-
-  <!-- Área garantida para o icon2, em fundo branco e sem sobreposições -->
-  <section class="safe-icon-zone">
-    <img src="{{ "/assets/icon2.png" | relative_url }}" alt="" class="safe-icon">
-  </section>
 </body>
 
 </html>

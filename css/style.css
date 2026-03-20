@@ -97,6 +97,27 @@ body {
   z-index: 2;
 }
 
+.header-flex-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 4vw, 3rem);
+  width: 100%;
+}
+
+.header-side-icon {
+  height: clamp(2.5rem, 8vw, 5rem);
+  width: auto;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.header-text-group {
+  flex-grow: 1;
+  text-align: center;
+  min-width: 0;
+}
+
 .organic-header h1 {
   font-family: 'Space Grotesk', sans-serif;
   font-size: clamp(1.8rem, 4vw, 3.8rem); /* Fonte dinâmica que se ajusta ao tamanho da tela */
@@ -338,32 +359,6 @@ body {
 
 .site-footer p {
   margin: 0;
-}
-
-.site-footer::before {
-  display: none;
-}
-
-.header-icon {
-  width: 150px; /* Tamanho do ícone */
-  margin-bottom: 1rem; /* Margem abaixo do ícone */
-}
-
-/* ── ZONA SEGURA ICON2 ───────────────────────────────────── */
-.safe-icon-zone {
-  background: #ffffff;
-  width: 100%;
-  padding: 8rem 0; /* Espaçamento generoso para garantir isolamento */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  z-index: 100; /* Garante que não será sobreposto */
-}
-
-.safe-icon {
-  max-width: 150px;
-  height: auto;
 }
 
 /* ── RESPONSIVO ──────────────────────────────────────────── */
