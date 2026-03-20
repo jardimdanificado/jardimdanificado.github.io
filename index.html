@@ -10,17 +10,9 @@ layout: default
     <h2>Artigos recentes</h2>
     <ul id="post-list">
       {% for post in site.posts %}
-      <li class="post-item-with-icon">
-        <div class="post-text-group">
-          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-          <span>{{ post.date | date: "%Y-%m-%d" }}</span>
-        </div>
-        {% assign mod = forloop.index | modulo: 2 %}
-        {% if mod == 1 %}
-        <img src="{{ "/assets/icon.png" | relative_url }}" alt="" class="post-stamp">
-        {% else %}
-        <img src="{{ "/assets/icon2.png" | relative_url }}" alt="" class="post-stamp">
-        {% endif %}
+      <li>
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        <span>{{ post.date | date: "%Y-%m-%d" }}</span>
       </li>
       {% endfor %}
     </ul>

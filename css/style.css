@@ -235,27 +235,9 @@ body {
   background: rgba(255, 255, 255, 0.4);
   transition: all 0.2s ease;
   display: flex;
-  flex-direction: row; /* Horizontal para o ícone à direita */
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-  border-radius: 20px;
-}
-
-.post-text-group {
-  display: flex;
   flex-direction: column;
-  gap: 0.8rem;
-  flex-grow: 1;
-  min-width: 0;
-}
-
-.post-stamp {
-  width: clamp(3.5rem, 10vw, 6.5rem);
-  height: auto;
-  flex-shrink: 0;
-  object-fit: contain;
-  filter: drop-shadow(4px 4px 0px rgba(0,0,0,0.1));
+  gap: 1.2rem;
+  border-radius: 20px;
 }
 
 .posts li:hover {
