@@ -93,10 +93,11 @@ body {
   bottom: 0;
   background:
     linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8)),
-    url('../assets/bliss_bg.png') center/cover no-repeat fixed;
-  filter: blur(40px) saturate(150%);
+    url('../assets/bliss_bg.png') center/cover no-repeat;
+  filter: blur(20px) saturate(150%);
   z-index: -1;
-  transform: scale(1.1);
+  transform: scale(1.05);
+  will-change: filter, transform;
   /* Evita bordas secas no desfoque */
 }
 
@@ -252,7 +253,8 @@ body {
 
   /* Glass Body with independent borders */
   background: rgba(255, 255, 255, 0.65);
-  backdrop-filter: blur(45px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 4px solid var(--glass-border);
   border-top: none;
   border-radius: 0 0 25px 25px;
@@ -326,7 +328,8 @@ body {
 
 .markdown-post article {
   background: rgba(255, 255, 255, 0.65);
-  backdrop-filter: blur(45px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 4px solid var(--glass-border);
   border-radius: 25px;
   padding: 3.5rem;
@@ -360,7 +363,8 @@ body {
   border: 4px solid var(--glass-border);
   padding: 2rem;
   background: var(--glass-bg);
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   color: var(--text);
   font-weight: 800;
   text-align: center;
