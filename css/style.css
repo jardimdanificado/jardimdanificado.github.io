@@ -97,27 +97,6 @@ body {
   z-index: 2;
 }
 
-.header-flex-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: clamp(1rem, 4vw, 3rem);
-  width: 100%;
-}
-
-.header-side-icon {
-  height: clamp(2.5rem, 8vw, 5rem);
-  width: auto;
-  flex-shrink: 0;
-  object-fit: contain;
-}
-
-.header-text-group {
-  flex-grow: 1;
-  text-align: center;
-  min-width: 0;
-}
-
 .organic-header h1 {
   font-family: 'Space Grotesk', sans-serif;
   font-size: clamp(1.8rem, 4vw, 3.8rem); /* Fonte dinâmica que se ajusta ao tamanho da tela */
@@ -251,14 +230,32 @@ body {
 }
 
 .posts li {
-  border: 2px solid var(--glass-border);
-  padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.2);
+  border: 4px solid var(--glass-border);
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.4);
   transition: all 0.2s ease;
   display: flex;
+  flex-direction: row; /* Horizontal para o ícone à direita */
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  border-radius: 20px;
+}
+
+.post-text-group {
+  display: flex;
   flex-direction: column;
-  gap: 1rem;
-  border-radius: 18px;
+  gap: 0.8rem;
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.post-stamp {
+  width: clamp(3.5rem, 10vw, 6.5rem);
+  height: auto;
+  flex-shrink: 0;
+  object-fit: contain;
+  filter: drop-shadow(4px 4px 0px rgba(0,0,0,0.1));
 }
 
 .posts li:hover {

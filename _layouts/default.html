@@ -13,21 +13,13 @@
   <main class="content">
     <div class="organic-glass-container">
       <header class="organic-header">
-        <div class="header-flex-row">
-          <img src="{{ "/assets/icon.png" | relative_url }}" alt="" class="header-side-icon">
-          
-          <div class="header-text-group">
-            {% if page.layout == 'post' %}
-              <h1>{{ page.title }}</h1>
-              <p>{{ page.date | date: "%Y-%m-%d" }}</p>
-            {% else %}
-              <h1>{{ site.description }}</h1>
-              <p>{{ site.subtitle }}</p>
-            {% endif %}
-          </div>
-
-          <img src="{{ "/assets/icon2.png" | relative_url }}" alt="" class="header-side-icon">
-        </div>
+        {% if page.layout == 'post' %}
+          <h1>{{ page.title }}</h1>
+          <p>{{ page.date | date: "%Y-%m-%d" }}</p>
+        {% else %}
+          <h1>{{ site.description }}</h1>
+          <p>{{ site.subtitle }}</p>
+        {% endif %}
       </header>
 
       {{ content }}
