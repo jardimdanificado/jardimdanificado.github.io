@@ -105,17 +105,7 @@ body {
 
 
 
-@keyframes organicFade {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+/* organicFade removido */
 
 .organic-header {
   border-bottom: 5px solid var(--glass-border);
@@ -335,7 +325,6 @@ body {
   padding: 3.5rem;
   box-shadow: 12px 12px 0 var(--glass-border);
   margin-top: 1.5rem;
-  animation: fadeUp 0.6s ease-out;
 }
 
 .markdown-post a.back-link {
@@ -359,18 +348,14 @@ body {
 }
 
 .site-footer {
-  margin-top: 4rem;
-  border: 4px solid var(--glass-border);
-  padding: 2rem;
-  background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  color: var(--text);
-  font-weight: 800;
+  margin-top: 5rem;
+  padding: 2rem 0;
+  color: var(--text-mid);
+  font-weight: 500;
   text-align: center;
   font-family: 'Space Mono', monospace;
-  border-radius: 20px;
-  box-shadow: 10px 10px 0 var(--accent-2);
+  font-size: 0.9rem;
+  opacity: 0.7;
 }
 
 .site-footer p {
@@ -393,12 +378,17 @@ body {
   }
 
   .organic-glass-container {
-    padding: 1.5rem 1rem;
-    margin: 0.5rem auto;
-    border-radius: 20px;
-    border-width: 3px;
-    box-shadow: 4px 4px 0 #000000; /* Sombra menor para não estourar a largura */
-    width: auto; /* Permite que o container respire com as margens do body */
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    overflow: visible;
+  }
+
+  .organic-glass-container::before {
+    display: none;
   }
 
   .organic-header {
@@ -447,24 +437,7 @@ body {
 }
 
 /* ── ANIMATIONS ─────────────────────────────────────────── */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.intro, .posts, .markdown-post {
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  animation: fadeUp 0.35s ease-out both;
-}
-
-.posts {
-  animation-delay: 0.1s;
-}
+/* Animações removidas para máxima performance */
 
 /* Prevenção de estouro de código no mobile */
 pre {
