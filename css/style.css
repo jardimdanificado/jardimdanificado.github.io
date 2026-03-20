@@ -94,10 +94,10 @@ body {
   background:
     linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8)),
     url('../assets/bliss_bg.png') center/cover no-repeat;
-  filter: blur(20px) saturate(150%);
+  filter: blur(8px) saturate(140%);
   z-index: -1;
-  transform: scale(1.05);
-  will-change: filter, transform;
+  transform: scale(1.02);
+  will-change: opacity; /* Otimiza a entrada inicial */
   /* Evita bordas secas no desfoque */
 }
 
@@ -450,25 +450,20 @@ body {
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(12px);
   }
-
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
-.intro {
-  animation: fadeUp 0.6s ease-out;
+.intro, .posts, .markdown-post {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  animation: fadeUp 0.35s ease-out both;
 }
 
 .posts {
-  animation: fadeUp 0.6s 0.1s ease-out both;
-}
-
-.markdown-post {
-  animation: fadeUp 0.6s ease-out;
+  animation-delay: 0.1s;
 }
 
 /* Prevenção de estouro de código no mobile */

@@ -1,6 +1,6 @@
 title: "jardimdanificado"
-description: "jardimdanificado"
-subtitle: "eu gosto de criar coisas"
+description: "eu gosto de criar coisas"
+subtitle: "jardimdanificado"
 timezone: "America/Sao_Paulo"
 permalink: /posts/:title/
 baseurl: "" # Se o site estiver em usuario.github.io/jardimdanificado, mude para "/jardimdanificado"
