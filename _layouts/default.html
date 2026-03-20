@@ -5,15 +5,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% if page.title %}{{ page.title }}{% else %} {{ site.title }}{% endif %}</title>
-  <link rel="icon" type="image/png" href="{{ " /assets/icon.png" | relative_url }}">
-  <link rel="stylesheet" href="{{ " /css/style.css" | relative_url }}">
+  <link rel="icon" type="image/png" href="{{ "/assets/round_icon.png" | relative_url }}">
+  <link rel="stylesheet" href="{{ "/css/style.css" | relative_url }}">
 </head>
 
 <body>
   <main class="content">
     <div class="organic-glass-container">
       <header class="organic-header">
-        <img src="{{ " /assets/icon.png" | relative_url }}" alt="" class="header-icon">
+        <img src="{{ "/assets/icon.png" | relative_url }}" alt="" class="header-icon">
         {% if page.layout == 'post' %}
         <h1>{{ page.title }}</h1>
         <p>{{ page.date | date: "%Y-%m-%d" }}</p>
@@ -33,7 +33,7 @@
 
   <!-- Área garantida para o icon2, em fundo branco e sem sobreposições -->
   <section class="safe-icon-zone">
-    <img src="{{ " /assets/icon2.png" | relative_url }}" alt="" class="safe-icon">
+    <img src="{{ "/assets/icon2.png" | relative_url }}" alt="" class="safe-icon">
   </section>
 </body>
 
