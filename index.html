@@ -1,20 +1,28 @@
 ---
 layout: default
 ---
-<section id="intro" class="intro-clean">
-  <p></p>
+
+<section class="hero">
+  <p class="hero-eyebrow">{{ site.subtitle }}</p>
+  <h1>{{ site.description | split: '...' | first }}<em>...</em></h1>
+  <p>vamos reconstruir</p>
 </section>
 
-<div class="unified-content">
-  <section class="posts">
-    <h2>Artigos recentes</h2>
-    <ul id="post-list">
-      {% for post in site.posts %}
-      <li>
-        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        <span>{{ post.date | date: "%Y-%m-%d" }}</span>
-      </li>
-      {% endfor %}
-    </ul>
-  </section>
-</div>
+<section class="posts-section">
+  <p class="section-label">posts</p>
+
+  {% if site.posts.size > 0 %}
+  <ul class="post-list">
+    {% for post in site.posts %}
+    <li class="post-item">
+      <a class="post-link" href="{{ post.url | relative_url }}">
+        <span class="post-title">{{ post.title }}</span>
+        <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p class="no-posts">nenhum post ainda</p>
+  {% endif %}
+</section>

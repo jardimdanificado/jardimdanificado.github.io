@@ -1,34 +1,35 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% if page.title %}{{ page.title }}{% else %} {{ site.title }}{% endif %}</title>
+  <title>{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | truncatewords: 30 }}">
   <link rel="icon" type="image/png" href="{{ "/assets/round_icon.png" | relative_url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="{{ "/css/style.css" | relative_url }}">
 </head>
-
 <body>
-  <main class="content">
-    <div class="organic-glass-container">
-      <header class="organic-header">
-        {% if page.layout == 'post' %}
-          <h1>{{ page.title }}</h1>
-          <p>{{ page.date | date: "%Y-%m-%d" }}</p>
-        {% else %}
-          <h1>{{ site.description }}</h1>
-          <p>{{ site.subtitle }}</p>
-        {% endif %}
-      </header>
 
-      {{ content }}
-
-      <footer class="site-footer">
-        <p>&copy; {{ site.time | date: "%Y" }} {{ site.title }}</p>
-      </footer>
+  <nav class="topbar">
+    <div class="topbar-inner">
+      <a class="site-name" href="{{ "/" | relative_url }}">{{ site.title }}</a>
+      <div class="topbar-links">
+        <a href="https://github.com/jardimdanificado" target="_blank" rel="noopener">github</a>
+      </div>
     </div>
-  </main>
-</body>
+  </nav>
 
+  <main class="site-wrap">
+    {{ content }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-copy">&copy; {{ site.time | date: "%Y" }} <span>{{ site.title }}</span></p>
+    </div>
+  </footer>
+
+</body>
 </html>
